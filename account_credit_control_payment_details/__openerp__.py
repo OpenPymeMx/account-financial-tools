@@ -17,5 +17,5 @@
     ],
     'data': [
         'views/report_credit_control_summary.xml', ],
-    "installable": True,
+    "installable": False,
 }

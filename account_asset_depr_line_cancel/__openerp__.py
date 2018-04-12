@@ -17,6 +17,6 @@
     'data': [
         'views/account_asset_asset_view.xml',
     ],
-    'installable': True,
+    'installable': False,
     'license': 'AGPL-3',
 }

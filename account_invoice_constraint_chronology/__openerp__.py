@@ -15,6 +15,6 @@
     "data": ["view/account_journal.xml"],
     "post_init_hook": "update_chronology_sale_journals",
     "licence": "AGPL-3",
-    "installable": True,
+    "installable": False,
     "application": True,
 }

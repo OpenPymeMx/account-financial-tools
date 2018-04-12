@@ -10,5 +10,5 @@
     'license': 'AGPL-3',
     'website': 'http://www.accessbookings.com',
     'data': ['views/account_view.xml'],
-    'installable': True,
+    'installable': False,
 }

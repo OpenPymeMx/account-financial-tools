@@ -31,4 +31,5 @@
     'depends': [
         'account',
     ],
+    'installable': False,
 }

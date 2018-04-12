@@ -29,6 +29,6 @@
  'website': 'http://www.camptocamp.com',
  'data': ['account_move_line_view.xml'],
  'tests': [],
- 'installable': True,
+ 'installable': False,
  'license': 'AGPL-3',
  }

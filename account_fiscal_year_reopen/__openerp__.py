@@ -14,5 +14,5 @@
     'data': [
         'views/account_fiscalyear.xml',
     ],
-    'installable': True,
+    'installable': False,
 }

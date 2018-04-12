@@ -20,5 +20,5 @@
         'views/report_open_invoices_view.xml',
         'views/report_paperformat.xml',
     ],
-    "installable": True,
+    "installable": False,
 }
