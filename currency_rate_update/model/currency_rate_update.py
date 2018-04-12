@@ -282,17 +282,17 @@ class Currency_rate_update_service(models.Model):
                 for curr in self.currency_to_update:
                     if curr.id == main_currency.id:
                         continue
-                    do_create = True
-                    for rate in curr.rate_ids:
-                        if rate.name == rate_name:
-                            rate.rate = res[curr.name]
-                            do_create = False
-                            break
-                    if do_create:
+                    rates = rate_obj.search([
+                        ('currency_id', '=', curr.id),
+                        ('company_id', '=', company.id),
+                        ('name', '=', rate_name),
+                    ])
+                    if not rates:
                         vals = {
                             'currency_id': curr.id,
                             'rate': res[curr.name],
-                            'name': rate_name
+                            'name': rate_name,
+                            'company_id': company.id,
                         }
                         rate_obj.create(vals)
                         _logger.info(
