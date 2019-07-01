@@ -23,6 +23,8 @@
 #
 ##############################################################################
 
+from six import integer_types
+
 from openerp import fields, models, api, _
 
 
@@ -77,6 +79,8 @@ class account_move(models.Model):
             reversal_period = period_obj.with_context(
                 company_id=self.company_id.id,
                 account_period_prefer_normal=True).find(reversal_date)[0]
+        if isinstance(reversal_period, integer_types):
+            reversal_period = period_obj.browse(reversal_period)
         if not reversal_journal_id:
             reversal_journal_id = self.journal_id.id
 
