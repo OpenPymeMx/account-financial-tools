@@ -37,15 +37,18 @@ class MX_BdM_getter(Currency_getter_interface):
         """ Get currency exchange from Banxico.xml and proccess it
         TODO: Get correct data from xml instead of process string
         """
-        url = ('http://www.banxico.org.mx/rsscb/rss?'
+        url = ('https://www.banxico.org.mx/rsscb/rss?'
                'BMXC_canal=pagos&BMXC_idioma=es')
 
+        import requests
         from xml.dom.minidom import parse
         from StringIO import StringIO
 
         logger = logging.getLogger(__name__)
         logger.debug("Banxico currency rate service : connecting...")
-        rawfile = self.get_url(url)
+        response = requests.get(url)
+        response.encoding = response.apparent_encoding
+        rawfile = response.text.encode('utf-8')
 
         dom = parse(StringIO(rawfile))
         logger.debug("Banxico sent a valid XML file")
